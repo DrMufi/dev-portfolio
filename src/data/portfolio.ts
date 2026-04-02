@@ -1,9 +1,9 @@
 export const personalInfo = {
-  name: "Alex Chen",
+  name: "Muhammad Mustafa",
   role: "Full-Stack Developer & UI/UX Designer",
   tagline: "Building digital experiences that inspire",
-  email: "alex@example.com",
-  location: "San Francisco, CA",
+  email: "muhammadmustafa@example.com",
+  location: "Pakistan",
   availability: "Available for freelance work",
   social: {
     github: "https://github.com",
@@ -73,6 +73,9 @@ export const skills = {
     { name: "Tailwind CSS", level: 95 },
     { name: "Three.js/R3F", level: 80 },
     { name: "Vue.js", level: 75 },
+    { name: "Svelte", level: 70 },
+    { name: "HTML5/CSS3", level: 95 },
+    { name: "Framer Motion", level: 85 },
   ],
   backend: [
     { name: "Node.js", level: 90 },
@@ -80,18 +83,32 @@ export const skills = {
     { name: "PostgreSQL", level: 85 },
     { name: "GraphQL", level: 80 },
     { name: "AWS", level: 75 },
+    { name: "MongoDB", level: 85 },
+    { name: "Express.js", level: 90 },
+    { name: "REST API", level: 90 },
   ],
   devops: [
     { name: "Docker", level: 85 },
     { name: "Kubernetes", level: 70 },
     { name: "CI/CD", level: 85 },
     { name: "Terraform", level: 70 },
+    { name: "AWS Cloud", level: 80 },
+    { name: "Nginx", level: 75 },
   ],
   tools: [
     { name: "Git", level: 95 },
     { name: "Figma", level: 85 },
     { name: "VS Code", level: 98 },
     { name: "Linux", level: 80 },
+    { name: "GitHub Actions", level: 85 },
+    { name: "Docker Compose", level: 80 },
+  ],
+  ai: [
+    { name: "OpenAI API", level: 85 },
+    { name: "LangChain", level: 75 },
+    { name: "Vector Databases", level: 70 },
+    { name: "RAG Systems", level: 75 },
+    { name: "Machine Learning", level: 65 },
   ],
 };
 

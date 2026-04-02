@@ -44,10 +44,10 @@ export function Navbar() {
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 group">
             <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-              <span className="font-bold text-background text-lg">A</span>
+              <span className="font-bold text-background text-lg">M</span>
             </div>
             <span className="text-xl font-display font-bold">
-              <span className="text-gradient">DevNexus</span>
+              <span className="text-gradient">Mustafa</span>
             </span>
           </Link>
 
