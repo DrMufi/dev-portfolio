@@ -1,0 +1,5 @@
+# Robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://muhammadmustafa.dev/sitemap.xml

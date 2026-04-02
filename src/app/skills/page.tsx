@@ -2,10 +2,9 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Code2, Server, Database, Wrench } from "lucide-react";
+import { Code2, Server, Database, Wrench, Brain, Sparkles, Globe, Palette } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ProgressBar } from "@/components/ui/progress";
 import { skills } from "@/data/portfolio";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/layout/animations";
 import { cn } from "@/lib/utils";
@@ -14,8 +13,52 @@ const categories = [
   { id: "frontend", label: "Frontend", icon: Code2 },
   { id: "backend", label: "Backend", icon: Server },
   { id: "devops", label: "DevOps", icon: Database },
+  { id: "ai", label: "AI/ML", icon: Brain },
   { id: "tools", label: "Tools", icon: Wrench },
 ];
+
+const skillIcons: Record<string, string> = {
+  "React/Next.js": "⚛️",
+  "TypeScript": "🔷",
+  "Tailwind CSS": "🎨",
+  "Three.js/R3F": "🎮",
+  "Vue.js": "💚",
+  "Svelte": "🔥",
+  "HTML5/CSS3": "🌐",
+  "Framer Motion": "✨",
+  "Redux/Zustand": "📦",
+  "SASS/SCSS": "📝",
+  "Node.js": "🟢",
+  "Python": "🐍",
+  "PostgreSQL": "🐘",
+  "GraphQL": "◼️",
+  "AWS": "☁️",
+  "MongoDB": "🍃",
+  "Express.js": "🚀",
+  "REST API": "🔗",
+  "Firebase": "🔥",
+  "Prisma": "🔺",
+  "Docker": "🐳",
+  "Kubernetes": "☸️",
+  "CI/CD": "⚡",
+  "Terraform": "🏗️",
+  "AWS Cloud": "☁️",
+  "Nginx": "🌊",
+  "GitHub Actions": "🔧",
+  "Vercel": "▲",
+  "Git": "📂",
+  "Figma": "🎯",
+  "VS Code": "💻",
+  "Linux": "🐧",
+  "Docker Compose": "🐋",
+  "Postman": "📮",
+  "Webpack/Vite": "📦",
+  "OpenAI API": "🤖",
+  "LangChain": "⛓️",
+  "Vector Databases": "💾",
+  "RAG Systems": "📚",
+  "Machine Learning": "🧠",
+};
 
 export default function Skills() {
   const [activeCategory, setActiveCategory] = useState("frontend");
@@ -24,6 +67,7 @@ export default function Skills() {
     frontend: skills.frontend,
     backend: skills.backend,
     devops: skills.devops,
+    ai: skills.ai,
     tools: skills.tools,
   };
 
@@ -70,13 +114,34 @@ export default function Skills() {
             <StaggerContainer>
               {skillCategories[activeCategory as keyof typeof skillCategories].map((skill, index) => (
                 <StaggerItem key={skill.name}>
-                  <Card className="p-6 hover:border-primary/30 transition-all">
-                    <ProgressBar 
-                      value={skill.level} 
-                      label={skill.name}
-                      delay={index * 0.1}
-                    />
-                  </Card>
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.05 }}
+                    className="group"
+                  >
+                    <Card className="p-4 hover:border-primary/30 transition-all">
+                      <div className="flex items-center gap-4">
+                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                          {skillIcons[skill.name] || "💻"}
+                        </div>
+                        <div className="flex-1">
+                          <div className="flex justify-between items-center mb-2">
+                            <h3 className="font-semibold">{skill.name}</h3>
+                            <span className="text-sm text-muted-foreground">{skill.level}%</span>
+                          </div>
+                          <div className="h-2 bg-secondary/20 rounded-full overflow-hidden">
+                            <motion.div
+                              initial={{ width: 0 }}
+                              animate={{ width: `${skill.level}%` }}
+                              transition={{ duration: 0.8, delay: index * 0.1 }}
+                              className="h-full bg-gradient-to-r from-primary via-accent to-secondary rounded-full"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </Card>
+                  </motion.div>
                 </StaggerItem>
               ))}
             </StaggerContainer>
@@ -130,7 +195,7 @@ export default function Skills() {
             </div>
           </AnimatedSection>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
             {categories.map((category, index) => {
               const categorySkills = skillCategories[category.id as keyof typeof skillCategories];
               const avgLevel = Math.round(
@@ -139,8 +204,10 @@ export default function Skills() {
 
               return (
                 <AnimatedSection key={category.id} delay={index * 0.1}>
-                  <Card className="p-6 text-center hover:border-primary/30 transition-all">
-                    <category.icon className="w-8 h-8 mx-auto mb-4 text-primary" />
+                  <Card className="p-6 text-center hover:border-primary/30 transition-all group">
+                    <div className="w-14 h-14 mx-auto mb-4 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <category.icon className="w-7 h-7 text-primary" />
+                    </div>
                     <h3 className="text-lg font-semibold mb-2">{category.label}</h3>
                     <div className="text-3xl font-bold text-gradient mb-2">{avgLevel}%</div>
                     <p className="text-xs text-muted-foreground">
