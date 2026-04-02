@@ -2,8 +2,8 @@ export const personalInfo = {
   name: "Muhammad Mustafa",
   role: "Full-Stack Developer & UI/UX Designer",
   tagline: "Building digital experiences that inspire",
-  email: "muhammadmustafa@example.com",
-  location: "Pakistan",
+  email: "mustafashabir645@gmail.com",
+  location: "Islamabad, Pakistan",
   availability: "Available for freelance work",
   social: {
     github: "https://github.com",
