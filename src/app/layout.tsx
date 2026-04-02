@@ -23,19 +23,19 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Alex Chen | Full-Stack Developer & UI/UX Designer",
+  title: "Muhammad Mustafa | Full-Stack Developer & UI/UX Designer",
   description: "Building digital experiences that inspire. Expert in React, Next.js, TypeScript, and modern web technologies.",
   keywords: ["Full-Stack Developer", "React", "Next.js", "UI/UX Designer", "Web Development"],
-  authors: [{ name: "Alex Chen" }],
+  authors: [{ name: "Muhammad Mustafa" }],
   openGraph: {
-    title: "Alex Chen | Full-Stack Developer & UI/UX Designer",
+    title: "Muhammad Mustafa | Full-Stack Developer & UI/UX Designer",
     description: "Building digital experiences that inspire.",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Alex Chen | Full-Stack Developer",
+    title: "Muhammad Mustafa | Full-Stack Developer",
     description: "Building digital experiences that inspire.",
   },
 };

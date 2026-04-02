@@ -292,7 +292,7 @@ export const testimonials = [
     name: "Sarah Johnson",
     role: "CEO",
     company: "TechCorp",
-    quote: "Alex delivered beyond our expectations. The attention to detail and innovative solutions transformed our product.",
+    quote: "Mustafa delivered beyond our expectations. The attention to detail and innovative solutions transformed our product.",
     avatar: "/testimonials/sarah.jpg",
   },
   {
@@ -300,7 +300,7 @@ export const testimonials = [
     name: "Michael Chen",
     role: "CTO",
     company: "StartupXYZ",
-    quote: "Working with Alex was a game-changer. Their full-stack expertise and design sensibility created something truly special.",
+    quote: "Working with Mustafa was a game-changer. Their full-stack expertise and design sensibility created something truly special.",
     avatar: "/testimonials/michael.jpg",
   },
   {
@@ -308,7 +308,7 @@ export const testimonials = [
     name: "Emily Rodriguez",
     role: "Lead Developer",
     company: "Digital Agency",
-    quote: "Alex's code quality is exceptional. Clean, well-documented, and scalable. A true professional to work with.",
+    quote: "Mustafa's code quality is exceptional. Clean, well-documented, and scalable. A true professional to work with.",
     avatar: "/testimonials/emily.jpg",
   },
 ];
