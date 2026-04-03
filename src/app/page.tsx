@@ -12,7 +12,7 @@ import { AnimatedSection, StaggerContainer, StaggerItem, FadeIn } from "@/compon
 
 const HeroCanvas = dynamic(() => import("@/components/3d/hero-canvas").then(mod => mod.HeroCanvas), {
   ssr: false,
-  loading: () => <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5" />,
+  loading: () => <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-slate-900 to-indigo-500/10" />,
 });
 
 export default function Home() {

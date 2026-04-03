@@ -5,7 +5,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial } from "@react-three/drei";
 import * as THREE from "three";
 
-function Particles({ count = 2000 }) {
+function Particles({ count = 1500 }) {
   const ref = useRef<THREE.Points>(null!);
 
   const positions = useMemo(() => {
@@ -23,8 +23,8 @@ function Particles({ count = 2000 }) {
 
   useFrame((state, delta) => {
     if (ref.current) {
-      ref.current.rotation.x -= delta * 0.05;
-      ref.current.rotation.y -= delta * 0.08;
+      ref.current.rotation.x -= delta * 0.02;
+      ref.current.rotation.y -= delta * 0.03;
     }
   });
 
@@ -33,43 +33,71 @@ function Particles({ count = 2000 }) {
       <Points ref={ref} positions={positions} stride={3} frustumCulled={false}>
         <PointMaterial
           transparent
-          color="#00f0ff"
-          size={0.02}
+          color="#3b82f6"
+          size={0.015}
           sizeAttenuation={true}
           depthWrite={false}
-          opacity={0.6}
+          opacity={0.5}
         />
       </Points>
     </group>
   );
 }
 
-function FloatingShape({ position, rotation, color, scale = 1 }: {
+function FloatingCode({ position, scale = 1 }: {
   position: [number, number, number];
-  rotation: [number, number, number];
-  color: string;
   scale?: number;
 }) {
   const meshRef = useRef<THREE.Mesh>(null!);
 
   useFrame((state) => {
     if (meshRef.current) {
-      meshRef.current.rotation.x += 0.002;
-      meshRef.current.rotation.y += 0.003;
-      meshRef.current.position.y = position[1] + Math.sin(state.clock.elapsedTime * 0.5) * 0.2;
+      meshRef.current.rotation.x += 0.001;
+      meshRef.current.rotation.y += 0.002;
+      meshRef.current.position.y = position[1] + Math.sin(state.clock.elapsedTime * 0.3) * 0.15;
     }
   });
 
   return (
-    <mesh ref={meshRef} position={position} rotation={rotation} scale={scale}>
-      <octahedronGeometry args={[1, 0]} />
+    <mesh ref={meshRef} position={position} scale={scale}>
+      <icosahedronGeometry args={[1, 0]} />
       <meshStandardMaterial
-        color={color}
+        color="#6366f1"
         wireframe
         transparent
-        opacity={0.3}
+        opacity={0.2}
       />
     </mesh>
+  );
+}
+
+function GridLines() {
+  const ref = useRef<THREE.Group>(null!);
+
+  useFrame((state, delta) => {
+    if (ref.current) {
+      ref.current.position.z += delta * 0.1;
+      if (ref.current.position.z > 2) {
+        ref.current.position.z = -2;
+      }
+    }
+  });
+
+  return (
+    <group ref={ref} position={[0, -2, -1]}>
+      {[...Array(10)].map((_, i) => (
+        <mesh key={i} position={[i * 0.5 - 2.25, 0, 0]} rotation={[0, 0, 0]}>
+          <planeGeometry args={[0.02, 4]} />
+          <meshBasicMaterial color="#3b82f6" transparent opacity={0.1} />
+        </mesh>
+      ))}
+      {[...Array(20)].map((_, i) => (
+        <mesh key={`h-${i}`} position={[0, i * 0.2 - 2, 0]} rotation={[0, 0, 0]}>
+          <planeGeometry args={[4, 0.02]} />
+          <meshBasicMaterial color="#3b82f6" transparent opacity={0.1} />
+        </mesh>
+      ))}
+    </group>
   );
 }
 
@@ -77,12 +105,14 @@ export function HeroCanvas() {
   return (
     <div className="absolute inset-0 -z-10">
       <Canvas camera={{ position: [0, 0, 5], fov: 60 }}>
-        <ambientLight intensity={0.5} />
-        <pointLight position={[10, 10, 10]} intensity={1} color="#00f0ff" />
+        <ambientLight intensity={0.4} />
+        <pointLight position={[10, 10, 10]} intensity={0.5} color="#3b82f6" />
+        <pointLight position={[-10, -10, -10]} intensity={0.3} color="#6366f1" />
         <Particles />
-        <FloatingShape position={[3, 1, -2]} rotation={[0.5, 0.5, 0]} color="#ff00aa" scale={0.5} />
-        <FloatingShape position={[-3, -1, -1]} rotation={[0.3, 0.7, 0.2]} color="#7b2fff" scale={0.3} />
-        <FloatingShape position={[2, -2, 1]} rotation={[0.7, 0.3, 0.5]} color="#00f0ff" scale={0.4} />
+        <FloatingCode position={[3, 1, -2]} scale={0.4} />
+        <FloatingCode position={[-3, -1, -1]} scale={0.25} />
+        <FloatingCode position={[2, -2, 1]} scale={0.35} />
+        <GridLines />
       </Canvas>
     </div>
   );
