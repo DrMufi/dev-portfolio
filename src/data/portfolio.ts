@@ -46,8 +46,8 @@ export const education = [
   {
     id: 1,
     degree: "Bachelor of Software Engineering",
-    school: "National University of Sciences and Technology (NUST)",
-    year: "2024",
+    school: "International Islamic University Islamabad (IIUI)",
+    year: "2025",
     focus: "Software Engineering",
   },
 ];
@@ -283,114 +283,43 @@ export const projects = [
 export const testimonials = [
   {
     id: 1,
-    name: "Sarah Johnson",
-    role: "CEO",
-    company: "TechCorp",
-    quote: "Mustafa delivered beyond our expectations. The attention to detail and innovative solutions transformed our product.",
-    avatar: "/testimonials/sarah.jpg",
+    name: "Coming Soon",
+    role: "Seeking First Clients",
+    company: "",
+    quote: "Building my portfolio with quality work. Contact me to be my first testimonial!",
+    avatar: "",
   },
   {
     id: 2,
-    name: "Michael Chen",
-    role: "CTO",
-    company: "StartupXYZ",
-    quote: "Working with Mustafa was a game-changer. Their full-stack expertise and design sensibility created something truly special.",
-    avatar: "/testimonials/michael.jpg",
-  },
-  {
-    id: 3,
-    name: "Emily Rodriguez",
-    role: "Lead Developer",
-    company: "Digital Agency",
-    quote: "Mustafa's code quality is exceptional. Clean, well-documented, and scalable. A true professional to work with.",
-    avatar: "/testimonials/emily.jpg",
+    name: "Available for Projects",
+    role: "Open to Collaborate",
+    company: "",
+    quote: "Let's work together to bring your ideas to life with modern technologies.",
+    avatar: "",
   },
 ];
 
 export const blogPosts = [
   {
     id: 1,
-    slug: "building-scalable-react-apps",
-    title: "Building Scalable React Applications in 2024",
-    excerpt: "A comprehensive guide to architecture patterns, state management, and performance optimization for large React apps.",
-    category: "Web Dev",
-    date: "2024-01-15",
-    readTime: "8 min read",
+    slug: "coming-soon",
+    title: "More Content Coming Soon",
+    excerpt: "I'm working on sharing my knowledge and experiences. Stay tuned for articles on web development, AI, and best practices.",
+    category: "Updates",
+    date: "2024-01-01",
+    readTime: "1 min read",
     content: `
-## Introduction
+## More Content Coming Soon!
 
-Building scalable React applications requires careful planning and understanding of modern patterns...
+I'm currently working on writing helpful articles about:
 
-### Key Principles
+- Web Development Best Practices
+- AI Integration Techniques
+- Performance Optimization
+- Modern Tech Stack Insights
 
-1. **Component Composition** - Build smaller, reusable components
-2. **State Management** - Choose the right tool for your use case
-3. **Performance** - Optimize re-renders and bundle size
-
-## Architecture Patterns
-
-Let's explore the most effective patterns for scaling React applications...
-            `,
-  },
-  {
-    id: 2,
-    slug: "ai-integration-best-practices",
-    title: "AI Integration Best Practices for Web Apps",
-    excerpt: "Learn how to effectively integrate AI capabilities into your web applications while maintaining performance and privacy.",
-    category: "AI",
-    date: "2024-01-10",
-    readTime: "6 min read",
-    content: `
-## Introduction
-
-AI is revolutionizing web development...
-
-### Integration Strategies
-
-- Use caching for repeated queries
-- Implement proper error handling
-- Consider privacy implications
-            `,
-  },
-  {
-    id: 3,
-    slug: "security-modern-web-apps",
-    title: "Security Best Practices for Modern Web Applications",
-    excerpt: "Essential security measures every developer should implement to protect their applications from common vulnerabilities.",
-    category: "Security",
-    date: "2024-01-05",
-    readTime: "10 min read",
-    content: `
-## Introduction
-
-Security is not an afterthought...
-
-### Common Vulnerabilities
-
-1. XSS Attacks
-2. SQL Injection
-3. CSRF
-            `,
-  },
-  {
-    id: 4,
-    slug: "performance-optimization-guide",
-    title: "The Complete Performance Optimization Guide",
-    excerpt: "From Core Web Vitals to advanced optimization techniques, master the art of building fast web applications.",
-    category: "Performance",
-    date: "2023-12-28",
-    readTime: "12 min read",
-    content: `
-## Introduction
-
-Performance matters...
-
-### Core Web Vitals
-
-- LCP (Largest Contentful Paint)
-- FID (First Input Delay)
-- CLS (Cumulative Layout Shift)
-            `,
+Stay tuned for regular updates as I share my knowledge and experiences in the tech industry.
+    `,
   },
 ];
 

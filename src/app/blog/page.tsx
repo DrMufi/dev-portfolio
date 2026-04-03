@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Calendar, Clock, ArrowRight, Code, Cpu, Shield, Zap } from "lucide-react";
+import { Calendar, Clock, ArrowRight, Code, Cpu, Shield, Zap, Sparkles } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { blogPosts } from "@/data/portfolio";
@@ -13,6 +13,7 @@ const categoryIcons: Record<string, typeof Code> = {
   "AI": Cpu,
   "Security": Shield,
   "Performance": Zap,
+  "Updates": Sparkles,
 };
 
 const categoryColors: Record<string, string> = {
@@ -20,6 +21,7 @@ const categoryColors: Record<string, string> = {
   "AI": "#ff00aa",
   "Security": "#7b2fff",
   "Performance": "#00ff88",
+  "Updates": "#00f0ff",
 };
 
 export default function Blog() {
