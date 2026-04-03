@@ -105,13 +105,13 @@ export default function Skills() {
           </AnimatedSection>
 
           <AnimatedSection delay={0.2}>
-            <div className="flex flex-wrap justify-center gap-3 mb-12">
+            <div className="flex flex-wrap justify-center gap-3 mb-12 relative z-10">
               {categories.map((category) => (
                 <button
                   key={category.id}
                   onClick={() => setActiveCategory(category.id)}
                   className={cn(
-                    "flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-300",
+                    "flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 cursor-pointer",
                     activeCategory === category.id
                       ? "bg-primary text-primary-foreground glow-primary"
                       : "bg-card border border-border text-muted-foreground hover:border-primary/30 hover:text-foreground"
@@ -221,7 +221,7 @@ export default function Skills() {
                   <button
                     onClick={() => setActiveCategory(category.id)}
                     className={cn(
-                      "w-full p-4 text-center rounded-xl border transition-all group",
+                      "w-full p-4 text-center rounded-xl border transition-all group cursor-pointer",
                       activeCategory === category.id
                         ? "border-primary bg-primary/5"
                         : "border-border bg-card hover:border-primary/30"
