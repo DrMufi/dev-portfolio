@@ -218,7 +218,15 @@ export default function Skills() {
 
               return (
                 <AnimatedSection key={category.id} delay={index * 0.05}>
-                  <Card className="p-4 text-center hover:border-primary/30 transition-all group">
+                  <button
+                    onClick={() => setActiveCategory(category.id)}
+                    className={cn(
+                      "w-full p-4 text-center rounded-xl border transition-all group",
+                      activeCategory === category.id
+                        ? "border-primary bg-primary/5"
+                        : "border-border bg-card hover:border-primary/30"
+                    )}
+                  >
                     <div className="w-10 h-10 mx-auto mb-3 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center group-hover:scale-110 transition-transform">
                       <category.icon className="w-5 h-5 text-primary" />
                     </div>
@@ -227,7 +235,7 @@ export default function Skills() {
                     <p className="text-xs text-muted-foreground">
                       {categorySkills.length} skills
                     </p>
-                  </Card>
+                  </button>
                 </AnimatedSection>
               );
             })}
