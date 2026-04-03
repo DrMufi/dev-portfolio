@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { ArrowRight, Sparkles, Code2, Palette, Mail, MapPin, Globe, Rocket, Lightbulb, CheckCircle } from "lucide-react";
+import { ArrowRight, Sparkles, Code2, Palette, Mail, MapPin, Globe, Rocket, Lightbulb, CheckCircle, Layout, Monitor, Zap, Database } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -222,20 +222,24 @@ export default function Home() {
             </div>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
             {[
-              { icon: Code2, title: "Frontend", skills: skills.frontend.slice(0, 3).map(s => s.name) },
-              { icon: Palette, title: "Design", skills: ["Figma", "UI/UX", "Prototyping"] },
-              { icon: Sparkles, title: "Backend", skills: skills.backend.slice(0, 3).map(s => s.name) },
-              { icon: Sparkles, title: "DevOps", skills: skills.devops.slice(0, 3).map(s => s.name) },
+              { icon: Code2, title: "Frontend", skills: skills.frontend.slice(0, 4).map(s => s.name) },
+              { icon: Rocket, title: "Backend", skills: skills.backend.slice(0, 4).map(s => s.name) },
+              { icon: Layout, title: "WordPress", skills: skills.wordpress.slice(0, 4).map(s => s.name) },
+              { icon: Monitor, title: "Desktop", skills: skills.desktop.slice(0, 4).map(s => s.name) },
+              { icon: Zap, title: "Automation", skills: skills.automation.slice(0, 4).map(s => s.name) },
+              { icon: Database, title: "DevOps", skills: skills.devops.slice(0, 4).map(s => s.name) },
             ].map((category, index) => (
               <AnimatedSection key={category.title} delay={index * 0.1}>
-                <Card className="text-center">
-                  <category.icon className="w-8 h-8 mx-auto mb-4 text-primary" />
-                  <h3 className="text-lg font-semibold mb-4">{category.title}</h3>
-                  <div className="flex flex-wrap gap-2 justify-center">
-                    {category.skills.map((skill) => (
-                      <Badge key={skill} variant="outline">{skill}</Badge>
+                <Card className="text-center hover:border-primary/30 transition-all group">
+                  <div className="w-10 h-10 mx-auto mb-3 rounded-xl bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <category.icon className="w-5 h-5 text-primary" />
+                  </div>
+                  <h3 className="text-sm font-semibold mb-2">{category.title}</h3>
+                  <div className="flex flex-wrap gap-1 justify-center">
+                    {category.skills.slice(0, 2).map((skill) => (
+                      <Badge key={skill} variant="outline" className="text-[10px] px-1.5 py-0.5">{skill}</Badge>
                     ))}
                   </div>
                 </Card>

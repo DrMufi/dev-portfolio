@@ -4,7 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, GitBranch, Cloud, Globe } from "lucide-react";
+import { Menu, X, GitBranch, LinkIcon, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { personalInfo } from "@/data/portfolio";
@@ -22,6 +22,7 @@ export function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = React.useState(false);
   const [scrolled, setScrolled] = React.useState(false);
+  const [darkMode, setDarkMode] = React.useState(true);
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -30,6 +31,14 @@ export function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  React.useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [darkMode]);
 
   return (
     <>
@@ -43,8 +52,8 @@ export function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-              <span className="font-bold text-background text-lg">M</span>
+            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+              <span className="font-bold text-white text-lg">M</span>
             </div>
             <span className="text-xl font-display font-bold">
               <span className="text-gradient">Mustafa</span>
@@ -76,6 +85,12 @@ export function Navbar() {
           </nav>
 
           <div className="hidden md:flex items-center gap-3">
+            <button
+              onClick={() => setDarkMode(!darkMode)}
+              className="p-2 text-muted-foreground hover:text-foreground transition-colors"
+            >
+              {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+            </button>
             <a
               href={personalInfo.social.github}
               target="_blank"
@@ -84,13 +99,13 @@ export function Navbar() {
             >
               <GitBranch className="w-5 h-5" />
             </a>
-            <a
+              <a
               href={personalInfo.social.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 text-muted-foreground hover:text-foreground transition-colors"
             >
-              <Globe className="w-5 h-5" />
+              <LinkIcon className="w-5 h-5" />
             </a>
             <Button size="sm" variant="glow">
               Hire Me
@@ -143,11 +158,17 @@ export function Navbar() {
                 </motion.div>
               ))}
               <div className="flex gap-4 mt-8">
+                <button
+                  onClick={() => setDarkMode(!darkMode)}
+                  className="p-2 text-muted-foreground hover:text-foreground"
+                >
+                  {darkMode ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
+                </button>
                 <a href={personalInfo.social.github} target="_blank" rel="noopener noreferrer">
                   <GitBranch className="w-6 h-6 text-muted-foreground hover:text-foreground" />
                 </a>
                 <a href={personalInfo.social.linkedin} target="_blank" rel="noopener noreferrer">
-                  <Globe className="w-6 h-6 text-muted-foreground hover:text-foreground" />
+                  <LinkIcon className="w-6 h-6 text-muted-foreground hover:text-foreground" />
                 </a>
               </div>
             </div>

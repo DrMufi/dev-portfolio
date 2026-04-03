@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Code2, Server, Database, Wrench, Brain, Sparkles, Globe, Palette } from "lucide-react";
+import { Code2, Server, Database, Wrench, Brain, Globe, Layout, Monitor, Cpu, Zap } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { skills } from "@/data/portfolio";
@@ -12,6 +12,9 @@ import { cn } from "@/lib/utils";
 const categories = [
   { id: "frontend", label: "Frontend", icon: Code2 },
   { id: "backend", label: "Backend", icon: Server },
+  { id: "wordpress", label: "WordPress", icon: Layout },
+  { id: "desktop", label: "Desktop Apps", icon: Monitor },
+  { id: "automation", label: "Automation", icon: Zap },
   { id: "devops", label: "DevOps", icon: Database },
   { id: "ai", label: "AI/ML", icon: Brain },
   { id: "tools", label: "Tools", icon: Wrench },
@@ -23,41 +26,49 @@ const skillIcons: Record<string, string> = {
   "Tailwind CSS": "🎨",
   "Three.js/R3F": "🎮",
   "Vue.js": "💚",
-  "Svelte": "🔥",
   "HTML5/CSS3": "🌐",
   "Framer Motion": "✨",
   "Redux/Zustand": "📦",
-  "SASS/SCSS": "📝",
+  "JavaScript": "📜",
   "Node.js": "🟢",
   "Python": "🐍",
   "PostgreSQL": "🐘",
   "GraphQL": "◼️",
-  "AWS": "☁️",
   "MongoDB": "🍃",
   "Express.js": "🚀",
   "REST API": "🔗",
   "Firebase": "🔥",
-  "Prisma": "🔺",
+  "Custom Themes": "🎯",
+  "Plugin Development": "🧩",
+  "WooCommerce": "🛒",
+  "Elementor/Divi": "📐",
+  "WordPress CMS": "📝",
+  "Advanced Custom Fields": "⚙️",
+  "WP REST API": "🔌",
+  "Membership Sites": "👥",
+  "Electron": "💻",
+  "C#/.NET": "🎪",
+  "Python GUI": "🖥️",
+  "SQLite": "💾",
+  "Python Automation": "🤖",
+  "Selenium": "🕸️",
+  "API Integration": "🔄",
+  "Zapier/Make": "⚡",
+  "Business Logic": "📊",
   "Docker": "🐳",
-  "Kubernetes": "☸️",
+  "AWS": "☁️",
   "CI/CD": "⚡",
-  "Terraform": "🏗️",
-  "AWS Cloud": "☁️",
-  "Nginx": "🌊",
-  "GitHub Actions": "🔧",
   "Vercel": "▲",
+  "Nginx": "🌊",
   "Git": "📂",
   "Figma": "🎯",
   "VS Code": "💻",
   "Linux": "🐧",
-  "Docker Compose": "🐋",
   "Postman": "📮",
   "Webpack/Vite": "📦",
   "OpenAI API": "🤖",
   "LangChain": "⛓️",
-  "Vector Databases": "💾",
-  "RAG Systems": "📚",
-  "Machine Learning": "🧠",
+  "AI Integration": "🧠",
 };
 
 export default function Skills() {
@@ -66,6 +77,9 @@ export default function Skills() {
   const skillCategories = {
     frontend: skills.frontend,
     backend: skills.backend,
+    wordpress: skills.wordpress,
+    desktop: skills.desktop,
+    automation: skills.automation,
     devops: skills.devops,
     ai: skills.ai,
     tools: skills.tools,
@@ -74,7 +88,7 @@ export default function Skills() {
   return (
     <div className="min-h-screen pt-20">
       <section className="py-20 relative">
-        <div className="absolute inset-0 bg-grid opacity-10" />
+        <div className="absolute inset-0 bg-grid opacity-30" />
         <div className="absolute inset-0 bg-radial" />
         
         <div className="max-w-7xl mx-auto px-6">
@@ -85,19 +99,19 @@ export default function Skills() {
                 Skills & <span className="text-gradient">Technologies</span>
               </h1>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                A comprehensive overview of my technical skills and proficiency levels across different domains.
+                7+ years of experience across web development, WordPress, desktop applications, and business automation.
               </p>
             </div>
           </AnimatedSection>
 
           <AnimatedSection delay={0.2}>
-            <div className="flex flex-wrap justify-center gap-4 mb-12">
+            <div className="flex flex-wrap justify-center gap-3 mb-12">
               {categories.map((category) => (
                 <button
                   key={category.id}
                   onClick={() => setActiveCategory(category.id)}
                   className={cn(
-                    "flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-medium transition-all duration-300",
+                    "flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-300",
                     activeCategory === category.id
                       ? "bg-primary text-primary-foreground glow-primary"
                       : "bg-card border border-border text-muted-foreground hover:border-primary/30 hover:text-foreground"
@@ -135,7 +149,7 @@ export default function Skills() {
                               initial={{ width: 0 }}
                               animate={{ width: `${skill.level}%` }}
                               transition={{ duration: 0.8, delay: index * 0.1 }}
-                              className="h-full bg-gradient-to-r from-primary via-accent to-secondary rounded-full"
+                              className="h-full bg-gradient-to-r from-primary via-secondary to-accent rounded-full"
                             />
                           </div>
                         </div>
@@ -154,20 +168,20 @@ export default function Skills() {
                 <div className="space-y-6">
                   {[
                     {
-                      title: "Continuous Learning",
-                      description: "I stay updated with the latest technologies and best practices in the industry.",
+                      title: "7+ Years WordPress Experience",
+                      description: "Built 30+ custom themes, plugins, WooCommerce stores, and membership sites.",
                     },
                     {
-                      title: "Practical Application",
-                      description: "Skills are honed through real-world projects and solving actual business problems.",
+                      title: "Full-Stack Development",
+                      description: "Modern web applications with React, Next.js, Node.js, and cloud technologies.",
                     },
                     {
-                      title: "Clean Code",
-                      description: "I prioritize writing maintainable, well-documented, and performant code.",
+                      title: "Desktop Applications",
+                      description: "Cross-platform desktop apps using Electron and Python for business needs.",
                     },
                     {
-                      title: "Performance",
-                      description: "Every skill is applied with a focus on optimal performance and user experience.",
+                      title: "Business Automation",
+                      description: "Streamlining workflows and automating repetitive tasks for businesses.",
                     },
                   ].map((item, index) => (
                     <div key={index} className="flex gap-4">
@@ -195,7 +209,7 @@ export default function Skills() {
             </div>
           </AnimatedSection>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
             {categories.map((category, index) => {
               const categorySkills = skillCategories[category.id as keyof typeof skillCategories];
               const avgLevel = Math.round(
@@ -203,15 +217,15 @@ export default function Skills() {
               );
 
               return (
-                <AnimatedSection key={category.id} delay={index * 0.1}>
-                  <Card className="p-6 text-center hover:border-primary/30 transition-all group">
-                    <div className="w-14 h-14 mx-auto mb-4 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <category.icon className="w-7 h-7 text-primary" />
+                <AnimatedSection key={category.id} delay={index * 0.05}>
+                  <Card className="p-4 text-center hover:border-primary/30 transition-all group">
+                    <div className="w-10 h-10 mx-auto mb-3 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <category.icon className="w-5 h-5 text-primary" />
                     </div>
-                    <h3 className="text-lg font-semibold mb-2">{category.label}</h3>
-                    <div className="text-3xl font-bold text-gradient mb-2">{avgLevel}%</div>
+                    <h3 className="text-sm font-semibold mb-1">{category.label}</h3>
+                    <div className="text-lg font-bold text-gradient mb-1">{avgLevel}%</div>
                     <p className="text-xs text-muted-foreground">
-                      {categorySkills.length} technologies
+                      {categorySkills.length} skills
                     </p>
                   </Card>
                 </AnimatedSection>
@@ -229,11 +243,11 @@ export default function Skills() {
                 Let&apos;s <span className="text-gradient">Collaborate</span>
               </h2>
               <p className="text-muted-foreground mb-8">
-                Ready to leverage my skills for your next project? Let&apos;s talk.
+                With 35+ projects completed and 7 years of experience, I can bring your vision to reality.
               </p>
               <a 
                 href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] transition-all"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:shadow-[0_0_20px_rgba(59,130,246,0.4)] transition-all"
               >
                 Get In Touch
               </a>
