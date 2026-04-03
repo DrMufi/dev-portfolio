@@ -125,40 +125,39 @@ export default function Skills() {
           </AnimatedSection>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <StaggerContainer>
+            <div key={activeCategory} className="space-y-4">
               {skillCategories[activeCategory as keyof typeof skillCategories].map((skill, index) => (
-                <StaggerItem key={skill.name}>
-                  <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.05 }}
-                    className="group"
-                  >
-                    <Card className="p-4 hover:border-primary/30 transition-all">
-                      <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
-                          {skillIcons[skill.name] || "💻"}
+                <motion.div
+                  key={skill.name}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.05 }}
+                  className="group"
+                >
+                  <Card className="p-4 hover:border-primary/30 transition-all">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                        {skillIcons[skill.name] || "💻"}
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex justify-between items-center mb-2">
+                          <h3 className="font-semibold">{skill.name}</h3>
+                          <span className="text-sm text-muted-foreground">{skill.level}%</span>
                         </div>
-                        <div className="flex-1">
-                          <div className="flex justify-between items-center mb-2">
-                            <h3 className="font-semibold">{skill.name}</h3>
-                            <span className="text-sm text-muted-foreground">{skill.level}%</span>
-                          </div>
-                          <div className="h-2 bg-secondary/20 rounded-full overflow-hidden">
-                            <motion.div
-                              initial={{ width: 0 }}
-                              animate={{ width: `${skill.level}%` }}
-                              transition={{ duration: 0.8, delay: index * 0.1 }}
-                              className="h-full bg-gradient-to-r from-primary via-secondary to-accent rounded-full"
-                            />
-                          </div>
+                        <div className="h-2 bg-secondary/20 rounded-full overflow-hidden">
+                          <motion.div
+                            initial={{ width: 0 }}
+                            animate={{ width: `${skill.level}%` }}
+                            transition={{ duration: 0.8, delay: index * 0.1 }}
+                            className="h-full bg-gradient-to-r from-primary via-secondary to-accent rounded-full"
+                          />
                         </div>
                       </div>
-                    </Card>
-                  </motion.div>
-                </StaggerItem>
+                    </div>
+                  </Card>
+                </motion.div>
               ))}
-            </StaggerContainer>
+            </div>
 
             <AnimatedSection delay={0.3}>
               <Card className="p-8 h-full">
